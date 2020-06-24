@@ -80,15 +80,15 @@
     
     3. 配置opencv
     
-       **vim /etc/ld.so.conf**
+       **vim /etc/ld.so.conf.d/opencv.conf**
     
        在末尾添加两行 
     
        **/usr/local/lib64**  
        **/usr/local/lib**
     
-       使profile生效  
-       **source /etc/profile**   
+       保存后执行 
+       **ldconfig**   
 
 6.  报错解决办法  
     安装opencv，执行到make时可能会报错。   
