@@ -1,6 +1,6 @@
 # 安装opencv和ffmpeg<a name="ZH-CN_TOPIC_0228768065"></a>
 
-请按照以下步骤进行安装。
+请用root用户按照以下步骤进行安装。
 
 
 1.  升级gcc、g++
