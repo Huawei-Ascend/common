@@ -61,7 +61,7 @@
    	**source /etc/profile** 
    	
    4. 使opencv能找到ffmpeg  
-      **sudo cp /usr/local/ffmpeg/lib/pkgconfig/\*  /usr/share/pkgconfig**
+      **cp /usr/local/ffmpeg/lib/pkgconfig/\*  /usr/share/pkgconfig**
 
 5.  安装opencv
     1. 下载opencv  
