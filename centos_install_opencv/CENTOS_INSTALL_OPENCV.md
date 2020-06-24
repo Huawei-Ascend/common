@@ -29,15 +29,13 @@
 3.  升级cmake   
 
     **wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz**      
-    **tar xvf cmake-3.14.5.tar.gz && cd cmake-3.14.5/**    
-    
-    **./bootstrap** 
-    
-    **gmake**
-    **gmake install**
-    **/usr/local/bin/cmake --version**
-    **yum remove cmake -y**
-    **ln -s /usr/local/bin/cmake /usr/bin/**
+    **tar xvf cmake-3.14.5.tar.gz && cd cmake-3.14.5/**      
+    **./bootstrap**     
+    **gmake**  
+    **gmake install**  
+    **/usr/local/bin/cmake --version**  
+    **yum remove cmake -y**  
+    **ln -s /usr/local/bin/cmake /usr/bin/**  
     **cmake --version**
     
 4. 安装ffmpeg  
