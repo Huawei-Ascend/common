@@ -101,7 +101,7 @@
     **rm -rf /opt/images/swap**  
     **dd if=/dev/zero of=/opt/images/swap bs=1024 count=2048000**  
     **mkswap /opt/images/swap**   
-    **swapon /opt/images/swap**
+    **swapon /opt/images/swap**  
     **free -m**   
     **make clean**  
  
