@@ -66,7 +66,7 @@
 5.  安装opencv
     1. 下载opencv  
        **wget https://github.com/opencv/opencv/archive/4.3.0.zip**  
-       **unzip opencv-4.3.0.zip**
+       **unzip opencv-4.3.0.zip**  
        **cd opencv-4.3.0**  
        **mkdir build**  
        **cd build**
