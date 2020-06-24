@@ -84,7 +84,7 @@
     
        在末尾添加两行 
     
-       **/usr/local/lib64**
+       **/usr/local/lib64**  
        **/usr/local/lib**
     
        使profile生效  
