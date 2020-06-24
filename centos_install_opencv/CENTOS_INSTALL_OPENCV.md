@@ -87,7 +87,7 @@
        **/usr/local/lib64**  
        **/usr/local/lib**
     
-       保存后执行 
+       保存后执行   
        **ldconfig**   
 
 6.  报错解决办法  
