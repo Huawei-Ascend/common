@@ -15,7 +15,8 @@
 3.  拷贝opencv/include/下的文件夹到/usr/local/include文件夹下。  
     **cp -r $HOME/Downloads/common/200dk_install_opencv/opencv/include/ /usr/local/include/**    
 
-4.  在开发环境建立软链接。
+4.  在开发环境建立软链接。  
+
     **ln -s /usr/aarch64-linux-gnu/lib /lib/aarch64-linux-gnu**
   
 5.  将opencv/200dklib下的所有文件上传到开发板的/home/HwHiAiUser/Ascend/acllib/lib64路径中。  
@@ -34,7 +35,7 @@
     给/lib/aarch64-linux-gnu/lib目录添加可写权限  
     **chmod u+w /lib/aarch64-linux-gnu/lib**  
 
-    拷贝libc_nonshared.a 到/lib/aarch64-linux-gnu/lib目录下 
+    拷贝libc_nonshared.a 到/lib/aarch64-linux-gnu/lib目录下   
     **cp /usr/lib/aarch64-linux-gnu/libc_nonshared.a /lib/aarch64-linux-gnu/lib/**
     
    
