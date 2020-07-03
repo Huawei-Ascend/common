@@ -1,115 +1,41 @@
 # 安装opencv<a name="ZH-CN_TOPIC_0228768065"></a>
 
-请按照以下步骤进行安装.
+请按照以下步骤进行安装。
 
-1.  在root用户下更换源。
+1.  下载编译好的opencv到服务器任意目录，如cd $HOME/Downloads。  
+    **cd $HOME/Downloads**  
 
+    **git clone https://gitee.com/ascend/common.git**  
 
-    **vim /etc/apt/sources.list**
-       
-    把原有的源更换为国内可用的源。
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted
-     
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial universe
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates universe
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial multiverse
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates multiverse
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security universe
-    
-    deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security multiverse
-    
-    修改完成后 wq 保存并退出。    
-    
-    让更新源生效。 
-    
-    **apt-get update**
+2.  拷贝opencv/lib文件夹下所有的文件到/usr/local/lib文件夹下。  
+    **su root**
 
+    **cp $HOME/Downloads/common/200dk_install_opencv/opencv/\* /usr/local/lib/**
 
-2.  升级gcc、g++
-    1.  安装gcc、g++  
+3.  拷贝opencv/include/下的文件夹到/usr/local/include文件夹下。  
+    **cp -r $HOME/Downloads/common/200dk_install_opencv/opencv/include/ /usr/local/include/**    
 
-        **add-apt-repository ppa:ubuntu-toolchain-r/test**  
-        **apt-get update**  
-        **apt-get install gcc-7 g++-7**
-        
-    2.  删除gcc、g++软链接 
-      
-        **rm /usr/bin/gcc**  
-        **rm /usr/bin/g++**
-
-    3.  为新版本的gcc、g++创建软链接  
-
-        **ln -s /usr/bin/gcc-7 /usr/bin/gcc**  
-        **ln -s /usr/bin/g++-7 /usr/bin/g++**
-
-3.  安装依赖库   
-
-    **sudo apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg.dev libtiff4.dev libswscale-dev libjasper-dev**  
-    
-4. 安装ffmpeg  
-
-   1. 下载ffmpeg  
-      **wget http://www.ffmpeg.org/releases/ffmpeg-4.1.3.tar.gz**  
-      **tar -zxvf ffmpeg-4.1.3.tar.gz**  
-      **cd ffmpeg-4.1.3**  
-
-   2. 安装ffmpeg  
-      **./configure --enable-shared --enable-pic --enable-static --disable-yasm --prefix=/usr/local/ffmpeg**  
-      **make -j8**  
-      **make install**
-
-   3.  将ffmpeg添加到系统环境变量中，使得其他程序能够找到ffmpeg环境  
-       **vim /etc/ld.so.conf.d/ffmpeg.conf**  
-       在末尾添加一行    
-       **/usr/local/ffmpeg/lib** 
+4.  在开发环境建立软链接。
+    **ln -s /usr/aarch64-linux-gnu/lib /lib/aarch64-linux-gnu**
   
-       **ldconfig**  
+5.  将opencv/200dklib下的所有文件上传到开发板的/home/HwHiAiUser/Ascend/acllib/lib64路径中。  
 
-       **vim /etc/profile**   
-       在末尾添加一行    
-       **export PATH=$PATH:/usr/local/ffmpeg/bin**   
+    普通用户ssh连接上开发板，给lib64目录添加可写权限。  
+    **chmod u+w /home/HwHiAiUser/Ascend/acllib/lib64** 
  
-       **source /etc/profile** 
-   	
-   4. 使opencv能找到ffmpeg  
-      **sudo cp /usr/local/ffmpeg/lib/pkgconfig/\*  /usr/share/pkgconfig**
+    拷贝文件到开发板上  
+    **scp -r $HOME/Downloads/common/200dk_install_opencv/opencv/200dklib/\* HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**  
 
-5.  安装opencv
-	1.  下载opencv    
-
-    	**git clone -b 4.3.0 https://github.com/opencv/opencv.git**  
-    	**cd opencv**  
-    	**mkdir build**  
-    	**cd build**  
-
-	2.  安装opencv  
-
-    	**cmake -D BUILD_SHARED_LIBS=ON -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local/ ..**  
-    	**make**  
-    	**make install**  
-
-	3.  配置opencv  
+6.  将开发板上/usr/lib/aarch64-linux-gnu/libc_nonshared.a 拷贝到/lib/aarch64-linux-gnu/lib目录下。  
     
-    	1.  更新系统库  
-        	**sudo ldconfig**
-    	2.  配置bash  
-        	**vi /etc/bash.bashrc**   
-        	在末尾添加两行  
-        	**PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig**  
-        	**export PKG_CONFIG_PATH**
+    普通用户ssh连接上开发板，切换到root用户  
+    **su root**  
+
+    给/lib/aarch64-linux-gnu/lib目录添加可写权限  
+    **chmod u+w /lib/aarch64-linux-gnu/lib**  
+
+    拷贝libc_nonshared.a 到/lib/aarch64-linux-gnu/lib目录下 
+    **cp /usr/lib/aarch64-linux-gnu/libc_nonshared.a /lib/aarch64-linux-gnu/lib/**
     
-    	3.  更新bash文件  
-        	**source /etc/bash.bashrc**  
-        	**sudo updatedb**
+   
 
