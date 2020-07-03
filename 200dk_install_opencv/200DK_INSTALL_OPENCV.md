@@ -1,4 +1,4 @@
-# 安装opencv和ffmpeg<a name="ZH-CN_TOPIC_0228768065"></a>
+# 安装opencv<a name="ZH-CN_TOPIC_0228768065"></a>
 
 请按照以下步骤进行安装.
 
