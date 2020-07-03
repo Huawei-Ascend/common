@@ -26,7 +26,12 @@
   
 5.  将opencv/200dklib下的所有文件上传到开发板的/home/HwHiAiUser/Ascend/acllib/lib64路径中。  
 
-    普通用户ssh连接上开发板，给lib64目录添加可写权限  
+    用普通用户ssh连接上开发板  
+    **ssh HwHiAiUser@192.168.1.2**  
+
+    **说明：Atlas 200 DK开发者板使用的IP地址为192.168.1.2 USB方式连接,网线方式连接的IP地址为192.168.0.2。**
+
+    给lib64目录添加可写权限  
     **chmod u+w /home/HwHiAiUser/Ascend/acllib/lib64** 
  
     拷贝文件到开发板上  
@@ -34,7 +39,10 @@
 
 6.  将开发板上/usr/lib/aarch64-linux-gnu/libc_nonshared.a 拷贝到/lib/aarch64-linux-gnu/lib目录下。  
     
-    普通用户ssh连接上开发板，切换到root用户  
+    ssh连接上开发板  
+    **ssh HwHiAiUser@192.168.1.2**
+
+    切换到root用户  
     **su root**  
 
     给/lib/aarch64-linux-gnu/lib目录添加可写权限  
@@ -47,7 +55,9 @@
 
 1.  开发板上将/usr/lib64/libprotobuf.so.19 /usr/lib64/libc_sec.so拷贝到开发环境的$HOME/Ascend目录下。  
  
-    普通用户ssh连接上开发板  
+    ssh连接上开发板  
+    **ssh HwHiAiUser@192.168.1.2** 
+
     拷贝文件到开发环境  
     **scp /usr/lib64/libprotobuf.so.19 HwHiAiUser@192.168.1.223:$HOME/Ascend/**   
  
