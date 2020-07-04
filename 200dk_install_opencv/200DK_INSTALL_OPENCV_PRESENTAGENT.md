@@ -1,8 +1,8 @@
-# 安装Opencv和PresentAgent<a name="ZH-CN_TOPIC_0228768065"></a>
+# 安装OpenCV和PresentAgent<a name="ZH-CN_TOPIC_0228768065"></a>
 
 请按照以下步骤进行安装。
 
-## 安装Opencv
+## 安装OpenCV
 
 1.  下载Opencv和PresentAgent到服务器任意目录，如cd $HOME/Downloads。  
 
