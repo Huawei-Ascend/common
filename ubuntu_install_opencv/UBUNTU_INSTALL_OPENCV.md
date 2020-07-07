@@ -96,6 +96,7 @@
 	2.  安装opencv  
 
     	**cmake -D BUILD_SHARED_LIBS=ON -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local/ ..**  
+
     	**make**  
     	**make install**  
 
