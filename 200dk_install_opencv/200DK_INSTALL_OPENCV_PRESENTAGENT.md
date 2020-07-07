@@ -13,7 +13,7 @@
 2.  拷贝opencv/lib文件夹下所有的文件到/usr/local/lib文件夹下。  
 
 
-    **sudo cp $HOME/Downloads/common/200dk_install_opencv/opencv/lib\/* /usr/local/lib/**
+    **sudo cp \\$HOME/Downloads/common/200dk_install_opencv/opencv/lib/\* /usr/local/lib/**
 
 3.  拷贝opencv/include/下的文件夹到/usr/local/include文件夹下。  
 
@@ -36,19 +36,17 @@
     拷贝文件到开发板上  
     **scp -r $HOME/Downloads/common/200dk_install_opencv/opencv/200dklib/\* HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**  
 
-6.  将开发板上/usr/lib/aarch64-linux-gnu/libc_nonshared.a 拷贝到/lib/aarch64-linux-gnu/目录下。  
-    
-    ssh连接上开发板  
-    **ssh HwHiAiUser@192.168.1.2**
+6.  将开发板上/usr/lib/aarch64-linux-gnu/libc_nonshared.a 拷贝到开发环境的/usr/lib/aarch64-linux-gnu/目录下。  
+  
 
     切换到root用户  
     **su root**  
 
-    给/lib/aarch64-linux-gnu/目录添加可写权限  
-    **chmod u+w /lib/aarch64-linux-gnu/**  
+    给/usr/lib/aarch64-linux-gnu/目录添加可写权限  
+    **chmod u+w /usr/lib/aarch64-linux-gnu/**  
 
-    拷贝libc_nonshared.a 到/lib/aarch64-linux-gnu/目录下   
-    **cp /usr/lib/aarch64-linux-gnu/libc_nonshared.a /lib/aarch64-linux-gnu/**
+    拷贝libc_nonshared.a 到/usr/lib/aarch64-linux-gnu/目录下   
+    **scp HwHiAiUser@192.168.1.2:/usr/lib/aarch64-linux-gnu/libc_nonshared.a /usr/lib/aarch64-linux-gnu/**
     
 ## 安装PresentAgent  
 
