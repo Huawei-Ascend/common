@@ -37,7 +37,7 @@
     拷贝文件到开发板上  
     **scp -r $HOME/Downloads/common/200dk_install_opencv/opencv/200dklib/\* HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**  
 
-6.  将开发板上/usr/lib/aarch64-linux-gnu/libc_nonshared.a 拷贝到/lib/aarch64-linux-gnu/lib目录下。  
+6.  将开发板上/usr/lib/aarch64-linux-gnu/libc_nonshared.a 拷贝到/lib/aarch64-linux-gnu/目录下。  
     
     ssh连接上开发板  
     **ssh HwHiAiUser@192.168.1.2**
@@ -45,11 +45,11 @@
     切换到root用户  
     **su root**  
 
-    给/lib/aarch64-linux-gnu/lib目录添加可写权限  
-    **chmod u+w /lib/aarch64-linux-gnu/lib**  
+    给/lib/aarch64-linux-gnu/目录添加可写权限  
+    **chmod u+w /lib/aarch64-linux-gnu/**  
 
-    拷贝libc_nonshared.a 到/lib/aarch64-linux-gnu/lib目录下   
-    **cp /usr/lib/aarch64-linux-gnu/libc_nonshared.a /lib/aarch64-linux-gnu/lib/**
+    拷贝libc_nonshared.a 到/lib/aarch64-linux-gnu/目录下   
+    **cp /usr/lib/aarch64-linux-gnu/libc_nonshared.a /lib/aarch64-linux-gnu/**
     
 ## 安装PresentAgent  
 
