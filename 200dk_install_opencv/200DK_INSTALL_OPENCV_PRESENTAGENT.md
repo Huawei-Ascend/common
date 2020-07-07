@@ -80,5 +80,6 @@
     
     **scp ./out/libpresentagent.so HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**  
 
-6. 安装
+6. 安装tornado。  
+**python3.7.5 -m pip install tornado==5.1.0 -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com --user**
    
