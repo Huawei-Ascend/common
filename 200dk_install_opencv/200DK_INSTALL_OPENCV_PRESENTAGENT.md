@@ -12,17 +12,16 @@
 
 2.  拷贝opencv/lib文件夹下所有的文件到/usr/local/lib文件夹下。  
 
-    **su root**
 
-    **cp $HOME/Downloads/common/200dk_install_opencv/opencv/\* /usr/local/lib/**
+    **sudo cp $HOME/Downloads/common/200dk_install_opencv/opencv/lib\/* /usr/local/lib/**
 
 3.  拷贝opencv/include/下的文件夹到/usr/local/include文件夹下。  
 
-    **cp -r $HOME/Downloads/common/200dk_install_opencv/opencv/include/ /usr/local/include/**    
+    **sudo cp -r $HOME/Downloads/common/200dk_install_opencv/opencv/include/\* /usr/local/include/**    
 
 4.  在开发环境建立软链接。  
 
-    **ln -s /usr/aarch64-linux-gnu/lib /lib/aarch64-linux-gnu**
+    **sudo ln -s /usr/aarch64-linux-gnu/lib /lib/aarch64-linux-gnu**
   
 5.  将opencv/200dklib下的所有文件上传到开发板的/home/HwHiAiUser/Ascend/acllib/lib64路径中。  
 
