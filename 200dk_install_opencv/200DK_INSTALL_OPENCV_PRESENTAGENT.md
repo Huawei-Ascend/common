@@ -76,9 +76,9 @@
 
     **make install**
 
-5.  将libpresentagent.so拷贝到开发板的/home/HwHiAiUser/Ascend/acllib/lib64文件夹下。  
+5.  将libpresenteragent.so拷贝到开发板的/home/HwHiAiUser/Ascend/acllib/lib64文件夹下。  
     
-    **scp ./out/libpresentagent.so HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**  
+    **scp ./out/libpresenteragent.so HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**  
 
 6. 在开发环境安装tornado。  
 **python3.7.5 -m pip install tornado==5.1.0 -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com --user**
