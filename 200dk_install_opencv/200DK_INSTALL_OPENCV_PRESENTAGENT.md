@@ -78,5 +78,7 @@
 
 5.  将libpresentagent.so拷贝到开发板的/home/HwHiAiUser/Ascend/acllib/lib64文件夹下。  
     
-    **scp ./out/libpresentagent.so HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**
+    **scp ./out/libpresentagent.so HwHiAiUser@192.168.1.2:/home/HwHiAiUser/Ascend/acllib/lib64/**  
+
+6. 安装
    
