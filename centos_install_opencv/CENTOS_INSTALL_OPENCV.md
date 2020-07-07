@@ -66,7 +66,7 @@
 5.  安装opencv
     1. 下载opencv  
        **wget https://github.com/opencv/opencv/archive/4.3.0.zip**  
-       **unzip opencv-4.3.0.zip**  
+       **unzip 4.3.0.zip**  
        **cd opencv-4.3.0**  
        **mkdir build**  
        **cd build**
@@ -74,6 +74,7 @@
     
     2. 安装opencv    
        **cmake -D BUILD_SHARED_LIBS=ON -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local/ ..**  
+
        **make**  
        **make install**     
    
