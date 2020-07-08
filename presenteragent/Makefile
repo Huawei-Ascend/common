@@ -13,8 +13,8 @@ INC_DIR := \
 	-I$(LOCAL_DIR) \
 	-I$(LOCAL_DIR)/include \
 	-I$(LOCAL_DIR)/src \
-	-I$(HOME)/Ascend \  
-	-I$(HOME)/Ascend/acllib/include
+	-I$(HOME)/Ascend \
+	-I$(HOME)/Ascend/acllib/include\
 
 	
 
