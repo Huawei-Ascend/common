@@ -34,27 +34,24 @@
 #ifndef ASCENDDK_PRESENTER_AGENT_UTIL_LOGGING_H_
 #define ASCENDDK_PRESENTER_AGENT_UTIL_LOGGING_H_
 
-//#include "hiaiengine/log.h"
+#include "acl/acl_base.h"
 #include "cerrno"
 
 
 // debug level logging
-#define AGENT_LOG_DEBUG  printf                                
-//  HIAI_ENGINE_LOG(HIAI_DEBUG_INFO_CODE, "[%s:%d] " fmt "\n", __FILE__, \
-//                  __LINE__, ##__VA_ARGS__);
+#define AGENT_LOG_DEBUG(fmt, ...) \
+  aclAppLog(ACL_DEBUG, __FUNCTION__, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 
 // info level logging
-#define AGENT_LOG_INFO  printf
-//  HIAI_ENGINE_LOG("[%s:%d] " fmt "\n", __FILE__, __LINE__, ##__VA_ARGS__);
+#define AGENT_LOG_INFO(fmt, ...) \
+  aclAppLog(ACL_INFO, __FUNCTION__, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 
 // warn level logging
-#define AGENT_LOG_WARN  printf                                  
-//  HIAI_ENGINE_LOG(HIAI_GRAPH_WARNING_CODE, "[%s:%d] " fmt "\n", __FILE__, \
-//                  __LINE__, ##__VA_ARGS__);
+#define AGENT_LOG_WARN(fmt, ...) \
+  aclAppLog(ACL_WARNING, __FUNCTION__, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 
 // error level logging
-#define AGENT_LOG_ERROR  printf                                
-//  HIAI_ENGINE_LOG(HIAI_ENGINE_RUN_ARGS_NOT_RIGHT, "[%s:%d] " fmt "\n", \
-//                  __FILE__, __LINE__, ##__VA_ARGS__);
+#define AGENT_LOG_ERROR(fmt, ...) \
+  aclAppLog(ACL_ERROR, __FUNCTION__, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 
 #endif /* ASCENDDK_PRESENTER_AGENT_UTIL_LOGGING_H_ */
