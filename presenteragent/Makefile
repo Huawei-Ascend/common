@@ -13,8 +13,8 @@ INC_DIR := \
 	-I$(LOCAL_DIR) \
 	-I$(LOCAL_DIR)/include \
 	-I$(LOCAL_DIR)/src \
-	-I$/usr/local/protobuf/include \
-	-I/usr/local/Ascend/driver/kernel/libc_sec/include \
+	-I$(HOME)/Ascend \
+	
 
 
 
@@ -65,8 +65,8 @@ $(PROTO_OBJS) : proto/presenter_message.pb.cc | do_pre_build
 
 install: all
 	$(Q)echo [INSTALL] $@
-	$(Q)mkdir -p /home/HwHiAiUser/ascend_ddk/include
-	$(Q)mkdir -p /home/HwHiAiUser/ascend_ddk/host/lib
+	$(Q)mkdir -p $(home)/ascend_ddk/include
+	$(Q)mkdir -p $(home)/ascend_ddk/host/lib
 	$(Q)cp -R $(OUT_INC_DIR)/* /home/HwHiAiUser/ascend_ddk/include/
 	$(Q)cp -R $(OUT_DIR)/lib*.so /home/HwHiAiUser/ascend_ddk/host/lib/
 
