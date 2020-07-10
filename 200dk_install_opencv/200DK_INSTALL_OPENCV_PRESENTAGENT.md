@@ -51,11 +51,13 @@
 ## 安装PresentAgent  
 
 1.  将开发板上的/usr/lib64/libprotobuf.so.19 /usr/lib64/libc_sec.so拷贝到开发环境的$HOME/Ascend目录下。  
+    
+    切换到安装用户
+   
+    拷贝文件到开发环境    
+    **scp HwHiAiUser@192.168.1.2:/usr/lib64/libprotobuf.so.19 $HOME/Ascend** 
   
-    拷贝文件到开发环境  
-    **scp HwHiAiUser@192.168.1.2:/usr/lib64/libprotobuf.so.19 $HOME/Ascend/** 
-  
-    **scp HwHiAiUser@192.168.1.2:/usr/lib64/libc_sec.so $HOME/Ascend/**  
+    **scp HwHiAiUser@192.168.1.2:/usr/lib64/libc_sec.so $HOME/Ascend**  
 
 
 2.  在开发环境，生成软连接。   
