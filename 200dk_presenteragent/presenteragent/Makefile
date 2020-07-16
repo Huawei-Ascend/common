@@ -14,7 +14,7 @@ INC_DIR := \
 	-I$(LOCAL_DIR)/include \
 	-I$(LOCAL_DIR)/src \
 	-I$(HOME)/Ascend \
-	-I$(HOME)/Ascend/ascend-toolkit/20.0.0.B002/x86_64-linux_gcc7.3.0/atc/include/protobuf \
+	-I$(install_path)/atc/include/protobuf \
 	-I/usr/local/protobuf/include \
 	-I/usr/local/Ascend/driver/kernel/libc_sec/include \
 	-I$(HOME)/Ascend/acllib/include
