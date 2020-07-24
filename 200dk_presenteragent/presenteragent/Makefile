@@ -1,4 +1,19 @@
+ifndef DDK_PATH
+$(error "Can not find DDK_PATH env, please set it in environment!.")
+endif
+
+ifeq ($(mode),)
+mode=AtlasDK
+endif
+
+ifeq ($(mode), AtlasDK)
 CC := aarch64-linux-gnu-g++
+else ifeq ($(mode), ASIC)
+CC := g++
+else
+$(error "Unsupported mode: "$(mode)", please input: AtlasDK or ASIC.")
+endif
+
 
 LOCAL_MODULE_NAME := libpresenteragent.so
 
@@ -12,14 +27,10 @@ OUT_INC_DIR = $(OUT_DIR)/include
 INC_DIR := \
 	-I$(LOCAL_DIR) \
 	-I$(LOCAL_DIR)/include \
+	-I$(DDK_PATH)/acllib/include \
+        -I$(DDK_PATH)/atc/include/protobuf \
+	-I/usr/local/include \
 	-I$(LOCAL_DIR)/src \
-	-I$(HOME)/Ascend \
-	-I$(install_path)/atc/include/protobuf \
-	-I/usr/local/protobuf/include \
-	-I/usr/local/Ascend/driver/kernel/libc_sec/include \
-	-I$(HOME)/Ascend/acllib/include
-
-
 
 SRCS := $(patsubst $(LOCAL_DIR)/%.cpp, %.cpp, $(shell find $(LOCAL_DIR)/src -name *.cpp))
 OBJS := $(addprefix $(OBJ_DIR)/, $(patsubst %.cpp, %.o,$(SRCS)))
@@ -33,13 +44,11 @@ ALL_OBJS := $(OBJS) \
 CC_FLAGS := $(INC_DIR) -std=c++11 -Wall -fPIC -O2
 
 LNK_FLAGS := \
-	-Wl,-rpath-link=$(DDK_PATH)/atc/lib64/ \
-        -L$(DDK_PATH)/atc/lib64/ \
-	-L/usr/lib/aarch64-linux-gnu \
-	-L$(HOME)/Ascend \
+	-Wl,-rpath-link=$(DDK_PATH)/atc/lib64 \
+        -L$(DDK_PATH)/atc/lib64 \
+        -L$(DDK_PATH)/acllib/lib64 \
 	-lprotobuf \
-	-lc_sec \
-        -lpthread \
+        -lascendcl \
 	-shared
 
 all: do_pre_build do_build
@@ -72,7 +81,7 @@ install: all
 	$(Q)echo [INSTALL] $@
 	$(Q)mkdir -p $(HOME)/ascend_ddk/include
 	$(Q)mkdir -p $(HOME)/ascend_ddk/lib
-	$(Q)cp -R $(OUT_INC_DIR)/* $(HOME)/ascend_ddk/include/
+	$(Q)cp -R $(OUT_INC_DIR)/ascenddk* $(HOME)/ascend_ddk/include/
 	$(Q)cp -R $(OUT_DIR)/lib*.so $(HOME)/ascend_ddk/lib/
 
 install pcie: 

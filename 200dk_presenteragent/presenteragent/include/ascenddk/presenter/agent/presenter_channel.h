@@ -51,6 +51,16 @@ namespace presenter {
  */
 PresenterErrorCode OpenChannel(Channel *&channel,
                                const OpenChannelParam &param);
+/**
+ * @brief Open a channel to presenter server by config file
+ * @param [out] channel       channel must be a NULL pointer,
+ *                            and it will point to an opened channel if
+ *                            open successfully
+ * @configFile [in]  param    config file of channel configuration
+ * @return PresenterErrorCode
+ */
+PresenterErrorCode OpenChannelByConfig(Channel*& channel,
+	                                   const char* configFile);
 
 /**
  * @brief Send the image to server for display through the given channel

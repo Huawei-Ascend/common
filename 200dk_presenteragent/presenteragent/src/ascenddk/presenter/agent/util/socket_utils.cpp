@@ -41,8 +41,6 @@
 #include <signal.h>
 #include <unistd.h>
 
-#include "securec.h"
-
 #include "ascenddk/presenter/agent/util/logging.h"
 
 namespace {
@@ -89,12 +87,8 @@ bool SetSockAddr(const char *host_ip, uint16_t port, sockaddr_in &addr) {
   }
 
   // convert host and port to sockaddr
-  error_t ret = memset_s(&addr, sizeof(addr), 0, sizeof(addr));
-  if (ret != EOK) {
-    AGENT_LOG_ERROR("memset_s() error: %d", ret);
-    return false;
-  }
-
+  memset(&addr, 0, sizeof(addr));
+ 
   addr.sin_family = AF_INET;
   addr.sin_port = htons(port);
   if (inet_pton(AF_INET, host_ip, &addr.sin_addr) <= 0) {

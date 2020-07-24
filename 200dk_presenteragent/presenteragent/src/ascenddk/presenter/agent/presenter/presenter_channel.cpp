@@ -41,6 +41,7 @@
 #include "ascenddk/presenter/agent/presenter/presenter_channel_init_handler.h"
 #include "ascenddk/presenter/agent/presenter/presenter_message_helper.h"
 #include "ascenddk/presenter/agent/util/logging.h"
+#include "ascenddk/presenter/agent/util/parse_config.h"
 
 using namespace std;
 using namespace google::protobuf;
@@ -112,6 +113,36 @@ PresenterErrorCode OpenChannel(Channel *&channel,
 
   AGENT_LOG_INFO("Channel opened, channel = %s", channelDesc.c_str());
   return PresenterErrorCode::kNone;
+}
+
+PresenterErrorCode OpenChannelByConfig(Channel*& channel,
+									   const char* configFile) {
+	map<string, string> config;
+	ReadConfig(config, configFile);
+
+	OpenChannelParam param;
+	map<string, string>::const_iterator mIter = config.begin();
+	for (; mIter != config.end(); ++mIter) {
+		if (mIter->first == "presenter_server_ip") {
+			param.host_ip = mIter->second;
+                        AGENT_LOG_INFO("presenter_server_ip config string:%s", mIter->second.c_str());
+                }
+		else if (mIter->first == "presenter_server_port") {
+			param.port = std::stoi(mIter->second);
+                        AGENT_LOG_INFO("presenter_server_port config string:%s", mIter->second.c_str());
+                }
+		else if (mIter->first == "channel_name") {
+			param.channel_name = mIter->second;
+                        AGENT_LOG_INFO("channel_name config string:%s", mIter->second.c_str());
+                }
+		else if (mIter->first == "content_type") {
+			param.content_type = static_cast<ContentType>(std::stoi(mIter->second));
+                        AGENT_LOG_INFO("content_type config string:%s", mIter->second.c_str());
+                        printf("content_type config string:%s\n", mIter->second.c_str());
+                }
+	}
+
+	return OpenChannel(channel, param);
 }
 
 PresenterErrorCode PresentImage(Channel *channel, const ImageFrame &image) {

@@ -35,8 +35,6 @@
 
 #include <netinet/in.h>
 
-#include "securec.h"
-
 #include "ascenddk/presenter/agent/util/logging.h"
 #include "ascenddk/presenter/agent/util/mem_utils.h"
 
@@ -141,15 +139,15 @@ void ByteBufferWriter::PutBytes(const void *data, size_t size) {
   if (remaining_bytes <= 0) {
     return;
   }
-
-  errno_t ret = memcpy_s(w_ptr_, (size_t) remaining_bytes, data, size);
-  if (ret == EOK) {
-    w_ptr_ += size;
-    return;
+ 
+  if (size <= (size_t)remaining_bytes) {
+      memcpy(w_ptr_, data, size);
+      w_ptr_ += size;
+      return;
   }
 
-  AGENT_LOG_ERROR("memcpy_s() error: %d, buffer remains: %d, and requiring: %u",
-                  ret, remaining_bytes, size);
+  AGENT_LOG_ERROR("memcpy error, buffer remains: %d, and requiring: %u",
+                  remaining_bytes, size);
   // memcpy failed, any following write will be meaningless,
   // So set wPtr after end, to set the buffer to a faulty state
   w_ptr_ += remaining_bytes + 1;
