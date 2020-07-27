@@ -30,7 +30,7 @@
     **exit**  
 
     创建文件夹，用于存放编译后的文件。  
-    **mkdir /home/HwHiAiUser/ascend_ddk**
+    **mkdir -p /home/HwHiAiUser/ascend_ddk/arm**
 
     下载ffmpeg。  
     **cd $HOME**  
@@ -39,7 +39,7 @@
     **cd ffmpeg-4.1.3**
 
     安装ffmpeg。  
-    **./configure --enable-shared --enable-pic --enable-static --disable-yasm --prefix=/home/HwHiAiUser/ascend_ddk**  
+    **./configure --enable-shared --enable-pic --enable-static --disable-yasm --prefix=/home/HwHiAiUser/ascend_ddk/arm**  
     **make -j8**    
     **su root**  
     **make install**
@@ -47,18 +47,18 @@
     将ffmpeg添加到系统环境变量中，使得其他程序能够找到ffmpeg环境。  
     **vim /etc/ld.so.conf.d/ffmpeg.conf**  
     在末尾添加一行。  
-    **/home/HwHiAiUser/ascend_ddk/lib**  
+    **/home/HwHiAiUser/ascend_ddk/arm/lib**  
     使配置生效。  
     **ldconfig**  
 
     配置profile系统文件。  
     **vim /etc/profile**  
     在末尾添加一行。  
-    **export PATH=$PATH:/home/HwHiAiUser/ascend_ddk/bin**  
+    **export PATH=$PATH:/home/HwHiAiUser/ascend_ddk/arm/bin**  
     使配置文件生效。  
     **source /etc/profile**  
     使opencv能找到ffmpeg。  
-    **cp /home/HwHiAiUser/ascend_ddk/lib/pkgconfig/\* /usr/share/pkgconfig**  
+    **cp /home/HwHiAiUser/ascend_ddk/arm/lib/pkgconfig/\* /usr/share/pkgconfig**  
     退出root用户。  
     **exit**
 
@@ -70,7 +70,7 @@
     **cd build**  
 
     安装opencv。  
-    **cmake -D BUILD_SHARED_LIBS=ON -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D             CMAKE_INSTALL_PREFIX=/home/HwHiAiUser/ascend_ddk \.\.**  
+    **cmake -D BUILD_SHARED_LIBS=ON -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D             CMAKE_INSTALL_PREFIX=/home/HwHiAiUser/ascend_ddk/arm \.\.**  
     **make -j8**  
     **make install**
 
@@ -78,7 +78,7 @@
     程序编译时会链接LD_LIBRARY_PATH环境变量地址中的库文件，所以要将ffmpeg和opencv安装的库文件地址加到该环境变量中。  
     **vi ~/.bashrc**  
     在最后添加  
-    **export LD_LIBRARY_PATH=/home/HwHiAiUser/Ascend/acllib/lib64:/home/HwHiAiUser/ascend_ddk/lib**
+    **export LD_LIBRARY_PATH=/home/HwHiAiUser/Ascend/acllib/lib64:/home/HwHiAiUser/ascend_ddk/arm/lib**
     ![](figures/bashrc.png "")   
     执行以下命令使环境变量生效。  
     **source ~/.bashrc**
@@ -86,7 +86,8 @@
 7.  将开发板上安装的ffmpeg和opencv库导入开发环境中，以提供编译使用。  
     以下操作在host侧执行，不在开发板上。   
     使用普通用户执行   
-    **scp -r HwHiAiUser@192.168.1.2:/home/HwHiAiUser/ascend_ddk /home/ascend**  
+    **mkdir $HOME/ascend_ddk**
+    **scp -r HwHiAiUser@192.168.1.2:/home/HwHiAiUser/ascend_ddk/arm $HOME/ascend_ddk**  
     切换至root用户  
     **su root**  
     **cd /usr/lib/aarch64-linux-gnu**  
