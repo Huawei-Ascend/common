@@ -7,7 +7,7 @@
 3.  安装autoconf、automake、libtool依赖。  
     **sudo apt-get install autoconf automake libtool**
 4.  安装交叉编译器。  
-    **sudo apt-get install g++\-aarch64-linux-gnu g++\-5-aarch64-linux-gnu**  
+    **sudo apt-get install g++\-aarch64-linux-gnu g++\-5-aarch64-linux-gnu**    
 5.  安装protobuf（按照如下命令一步步执行即可，由于需要交叉编译，所以需要编译两遍）。  
     **git clone -b 3.8.x https://gitee.com/mirrors/protobufsource.git protobuf**  
     **cd protobuf**  
@@ -22,10 +22,13 @@
     **sudo make install**    
     **su root**
     **ldconfig**
-6.  编译并安装PresentAgent。  
+6.  编译并安装PresenterAgent。  
     切换回普通用户。  
-    **exit**  
+    **exit**    
+    设置下环境变量，在命令行内执行。  
+    **export DDK_PATH=/home/ascend/Ascend/ascend-toolkit/20.0.RC1/acllib_centos7.6.aarch64**   
     **cd $HOME/common/install_presenteragent/for_atlas200dk/presenteragent/**  
+    安装Presenteragent。  
     **make -j8**   
     **make install**  
     将编译好的so传到开发板上。  
