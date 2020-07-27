@@ -6,9 +6,7 @@
     **python3.7.5 -m pip install tornado==5.1.0 --user**
 3.  安装autoconf、automake、libtool依赖。  
     **sudo apt-get install autoconf automake libtool**
-4.  安装交叉编译器。  
-    **sudo apt-get install g++\-aarch64-linux-gnu g++\-5-aarch64-linux-gnu**    
-5.  安装protobuf（按照如下命令一步步执行即可，由于需要交叉编译，所以需要编译两遍）。  
+4.  安装protobuf（按照如下命令一步步执行即可，由于需要交叉编译，所以需要编译两遍）。  
     **git clone -b 3.8.x https://gitee.com/mirrors/protobufsource.git protobuf**  
     **cd protobuf**  
     **git submodule update --init --recursive**  
@@ -22,7 +20,7 @@
     **sudo make install**    
     **su root**  
     **ldconfig**
-6.  编译并安装PresenterAgent。  
+5.  编译并安装PresenterAgent。  
     切换回普通用户。  
     **exit**    
     设置下环境变量，在命令行内执行。  
