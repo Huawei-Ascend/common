@@ -63,7 +63,7 @@
 
 5.  安装opencv。  
     下载opencv。  
-    **git clone -b 4.3.0 https://github.com/opencv/opencv.git**  
+    **git clone -b 4.3.0 https://gitee.com/mirrors/opencv.git**  
     **cd opencv**  
     **mkdir build**  
     **cd build**  
