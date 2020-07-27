@@ -20,7 +20,7 @@
     **./configure --build=x86_64-linux-gnu --host=aarch64-linux-gnu --with-protoc=protoc**  
     **make -j8**  
     **sudo make install**    
-    **su root**
+    **su root**  
     **ldconfig**
 6.  编译并安装PresenterAgent。  
     切换回普通用户。  
