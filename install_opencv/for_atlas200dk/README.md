@@ -5,8 +5,9 @@
 1.  开发板设置联网（root用户密码：Mind@123）。  
     **su root**  
     **vi /etc/netplan/01-netcfg.yaml**   
-    填写以下配置。
+    填写以下配置。  
 ![](figures/network.png "")  
+
     填写后执行以下命令使配置生效，并将开发板网口接上可正常联网的网线。  
     **netplan apply**   
     重启开发板。  
