@@ -23,7 +23,7 @@
 
 3.  安装相关依赖（需要在root用户下安装）。  
     **su root**  
-    **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff4-dev git cmake libswscale-dev**
+    **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev**
 
 4.  安装ffmpeg。  
     先切换回普通用户。  
