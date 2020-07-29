@@ -65,19 +65,19 @@
         **sudo ldconfig**  
     
 4.  将so上传到ai1环境。  
-    **cd $HOME**
-    **scp -r ascend_ddk/ HwHiAiUser\@122.57.255.31:/home/HwHiAiUser*
+    **cd $HOME**  
+    **scp -r ascend_ddk/ HwHiAiUser\@122.57.255.31:/home/HwHiAiUser**
 
 5.  运行环境修改环境变量。
     程序编译时会链接LD_LIBRARY_PATH环境变量地址中的库文件，所以要将ffmpeg和opencv安装的库文件地址加到ai1环境的该环境变量中。  
     
     执行以下命令，在开发环境中登录ai1环境。  
-    **ssh HwHiAiUser@122.57.255.31**
+    **ssh HwHiAiUser\@122.57.255.31**
     
     打开配置文件。  
     **vi ~/.bashrc**  
     在在最后添加  
-    **export LD_LIBRARY_PATH=$HOME/ascend_ddk/x86/lib:$LD_LIBRARY_PATH**
+    **export LD_LIBRARY_PATH=\\$HOME/ascend_ddk/x86/lib\:\\$LD_LIBRARY_PATH**
     ![](figures/bashrc.png "")   
     
     执行以下命令使环境变量生效。  
