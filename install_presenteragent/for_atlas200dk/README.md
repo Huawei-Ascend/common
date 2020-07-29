@@ -25,8 +25,12 @@
     **exit**    
     设置下环境变量，在命令行内执行。  
     **export DDK_PATH=/home/ascend/Ascend/ascend-toolkit/20.0.RC1/acllib_centos7.6.aarch64**   
-    **cd $HOME/common/install_presenteragent/for_atlas200dk/presenteragent/**  
+     **说明：  
+     _请将X.X.X替换为Ascend-Toolkit开发套件包的实际版本号。  
+    例如：Toolkit包的包名为Ascend-Toolkit-20.0.RC1-x86_64-linux_gcc7.3.0.run，则此Toolkit的版本号为20.0.RC1。_**   
+
     安装Presenteragent。  
+    **cd $HOME/common/install_presenteragent/for_atlas200dk/presenteragent/**   
     **make -j8**   
     **make install**  
     将编译好的so传到开发板上。  
