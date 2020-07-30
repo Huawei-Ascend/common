@@ -35,8 +35,8 @@ pciutils net-tools**
      **./configure --prefix=/usr/local/python3.7.5 --enable-shared**   
      **make -j8**   
      **sudo make install**   
-     **sudo cp /usr/local/python3.7.5/lib/libpython3.7m.so.1.0 /usr/lib64** 
-     **sudo cp /usr/local/python3.7.5/lib/libpython3.7m.so.1.0 /usr/lib**
+     **sudo cp /usr/local/python3.7.5/lib/libpython3.7m.so.1.0 /usr/lib64**   
+     **sudo cp /usr/local/python3.7.5/lib/libpython3.7m.so.1.0 /usr/lib**  
     当出现如下显示，则输入y，表示覆盖系统自带的libpython3.7m.so.1.0文件。  
     cp: overwrite 'libpython3.7m.so.1.0'?y    
    
@@ -52,7 +52,7 @@ pciutils net-tools**
     sudo rm -rf /usr/bin/python3.7  
     sudo rm -rf /usr/bin/pip3.7** 
     
-6.  安装 Python3开发环境  
+6.  安装 numpy、pillow  
     **pip3.7.5 install numpy --user**   
     **sudo apt-get -y install libjpeg-dev zlib1g-dev**   
     **pip3.7.5 install pillow --user**
