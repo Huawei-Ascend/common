@@ -6,13 +6,33 @@
      **chmod u+w /etc/sudoers**   
      **vi /etc/sudoers**   
     在该文件“ # User privilege specification”下面增加如下内容：  
-     **HwHiAiUser ALL=(ALL:ALL) ALL** 
+     **HwHiAiUser ALL=(ALL:ALL) ALL**
+ 
+    ![](figures/authority.png "")
 
-2.  开发板设置联网（root用户密码：Mind@123）。  
-    使用网线连接开发板和路由器。   
+2.  开发板设置联网（root用户密码：Mind@123）。     
     **vi /etc/netplan/01-netcfg.yaml**   
-    填写以下配置。  
-![](figures/network.png "")  
+    填写以下配置。      
+     **注：需要注意这里的缩进格式，netplan配置时和python类似，对缩进有强限制** 
+
+    ```
+    network:
+      version: 2
+    #  renderer: NetworkManager
+      renderer: networkd
+      ethernets:
+        eth0:
+          dhcp4: yes 
+   
+        usb0:
+          dhcp4: no 
+          addresses: [192.168.1.2/24] 
+          gateway4: 192.168.0.1
+    ```
+
+
+    ![](figures/network.png "")  
+
 
     填写后执行以下命令使配置生效，并将开发板网口接上可正常联网的网线。  
     **netplan apply**   
