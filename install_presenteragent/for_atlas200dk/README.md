@@ -35,6 +35,6 @@
     **make install**  
     将编译好的so传到开发板上。  
     **scp $HOME/ascend_ddk/lib/libpresenteragent.so HwHiAiUser@192.168.1.2:/home/HwHiAiUser**    
-    **ssh HwHiAiUser**  
+    **ssh HwHiAiUser@192.168.1.2**  
     **su root**  
     **cp /home/HwHiAiUser/libpresenteragent.so /home/HwHiAiUser/Ascend/acllib/lib64**
