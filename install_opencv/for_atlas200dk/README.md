@@ -9,20 +9,15 @@
 ![](figures/network.png "")  
 
     填写后执行以下命令使配置生效，并将开发板网口接上可正常联网的网线。  
-    **netplan apply**   
-    重启开发板。  
-    **reboot** 
-
-2.  开发板换源（更换ubuntu18.04-arm华为源）。  
-    开发板重启完成后，四个灯常亮，此时再登录到开发板上。  
-    **ssh HwHiAiUser@192.168.1.2**   
-    登录到开发板上之后再执行以下换源操作。  
+    **netplan apply**      
+  
+2.  开发板换源（更换ubuntu18.04-arm华为源）。   
+    执行以下换源操作。  
     **wget -O /etc/apt/sources.list https://repo.huaweicloud.com/repository/conf/Ubuntu-Ports-bionic.list**   
     更新源。  
     **apt-get update** 
 
-3.  安装相关依赖（需要在root用户下安装）。  
-    **su root**  
+3.  安装相关依赖（需要在root用户下安装）。   
     **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev**
 
 4.  安装ffmpeg。  
