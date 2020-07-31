@@ -28,7 +28,7 @@
     4. 将ffmpeg添加到系统环境变量中，使得其他程序能够找到ffmpeg环境。  
         切换为root用户。  
         **su root**  
-        打开conf配置文件。
+        打开conf配置文件。  
         **vim /etc/ld.so.conf.d/ffmpeg.conf**  
         在末尾添加一行。  
         **/home/HwHiAiUser/ascend_ddk/x86/lib**  
