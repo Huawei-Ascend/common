@@ -48,7 +48,8 @@
         **exit**
 
 3.  安装opencv。  
-    1.  下载opencv。  
+    1.  下载opencv。
+        **cd $HOME**  
         **git clone -b 4.3.0 https://gitee.com/mirrors/opencv.git**  
         **cd opencv**  
         **mkdir build**  
