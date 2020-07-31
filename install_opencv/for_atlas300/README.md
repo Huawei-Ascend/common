@@ -34,8 +34,6 @@
         **/home/HwHiAiUser/ascend_ddk/x86/lib**  
         使配置生效。  
         **ldconfig**   
-        切换回普通用户。  
-        **exit**
 
     5. 配置profile系统文件。  
         **vim /etc/profile**  
@@ -46,6 +44,8 @@
     
     6. 使opencv能找到ffmpeg。  
         **cp /home/HwHiAiUser/ascend_ddk/x86/lib/pkgconfig/\* /usr/share/pkgconfig**  
+       切换回普通用户。  
+        **exit**
 
 3.  安装opencv。  
     1.  下载opencv。  
