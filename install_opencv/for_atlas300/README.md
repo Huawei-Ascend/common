@@ -8,7 +8,7 @@
 
 1.  安装相关依赖。  
     在开发环境命令行中以普通用户执行以下命令，安装ffmpeg+opencv所需要的第三方依赖。  
-    **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev**
+    **sudo apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev**
 
 2.  安装ffmpeg。  
     1. 创建文件夹，用于存放编译后的文件。  
