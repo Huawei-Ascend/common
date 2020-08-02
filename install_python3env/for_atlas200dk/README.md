@@ -54,7 +54,10 @@ pciutils net-tools**
      **cd Python-3.7.5**   
      **./configure --prefix=/usr/local/python3.7.5 --enable-shared**   
      **make -j8**   
-     **sudo make install**   
+     **sudo make install**  
+
+     说明：如果这里显示权限不够，则请在/etc/sudoer中为HwHiAiUser添加/usr/bin/make的权限，或者直接切换到root下运行
+     
      **sudo cp /usr/local/python3.7.5/lib/libpython3.7m.so.1.0 /usr/lib64**   
      **sudo cp /usr/local/python3.7.5/lib/libpython3.7m.so.1.0 /usr/lib**  
     当出现如下显示，则输入y，表示覆盖系统自带的libpython3.7m.so.1.0文件。  
