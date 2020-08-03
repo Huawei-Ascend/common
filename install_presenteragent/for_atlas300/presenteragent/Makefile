@@ -79,10 +79,10 @@ $(PROTO_OBJS) : proto/presenter_message.pb.cc | do_pre_build
 
 install: all
 	$(Q)echo [INSTALL] $@
-	$(Q)mkdir -p $(HOME)/ascend_ddk/arm/include
-	$(Q)mkdir -p $(HOME)/ascend_ddk/arm/lib
-	$(Q)cp -R $(OUT_INC_DIR)/ascenddk* $(HOME)/ascend_ddk/arm/include/
-	$(Q)cp -R $(OUT_DIR)/lib*.so $(HOME)/ascend_ddk/arm/lib/
+	$(Q)mkdir -p $(HOME)/ascend_ddk/x86/include
+	$(Q)mkdir -p $(HOME)/ascend_ddk/x86/lib
+	$(Q)cp -R $(OUT_INC_DIR)/ascenddk* $(HOME)/ascend_ddk/x86/include/
+	$(Q)cp -R $(OUT_DIR)/lib*.so $(HOME)/ascend_ddk/x86/lib/
 
 install pcie: 
 
