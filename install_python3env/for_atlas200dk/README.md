@@ -47,10 +47,11 @@
     **sudo apt-get update**   
 
 4.  安装pip3    
-     **sudo apt install pip3** 
+     **sudo apt install python3-pip** 
     
-5.  安装 numpy、pillow  
+5.  安装 python 包  
     **sudo apt-get install libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk**  
- 
     **pip3 install pillow --user**  
+  
+    **pip3 install Cython**  
     **pip3 install numpy --user** 
