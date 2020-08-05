@@ -29,15 +29,3 @@
     **cd $HOME/common/install_presenteragent/for_atlas200dk/presenteragent/**   
     **make -j8**   
     **make install**  
-6.  删除toolkit包中自带的protobuf  
-    由于我们使用的presentserver需要3.8.0版本的protobuf，所以我们在环境中安装了protobuf。但是开发环境的toolkit包中自带了protobuf的so，编译时会自动链接到该so。所以我们需要删除该so。
-
-    切换root用户  
-     **su root**     
-    进入protobuf.so目录  
-     **cd /home/HwHiAiUser/Ascend/ascend-toolkit/20.0.0.RC1/x86_64-linux_gcc7.3.0/atc/lib64**  
-    执行以下命令，将so改名  
-     **mv libprotobuf.so libprotobuf.so.bak**     
-     **mv libprotobuf.so.19 libprotobuf.so.19.bak**     
-    退出root用户    
-     **exit**   
