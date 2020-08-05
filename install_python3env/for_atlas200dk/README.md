@@ -46,7 +46,7 @@
     更新源。  
     **sudo apt-get update**   
 
-4.  安装pip3
+4.  安装pip3    
      **sudo apt install pip3** 
     
 5.  安装 numpy、pillow  
