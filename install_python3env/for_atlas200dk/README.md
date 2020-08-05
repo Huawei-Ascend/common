@@ -10,7 +10,7 @@
  
     ![](figures/authority.png "")
 
-2.  开发板设置联网（root用户密码：Mind@123）。     
+2.  开发板设置联网（root用户密码：Mind@123）     
     **vi /etc/netplan/01-netcfg.yaml**   
     填写以下配置。      
      **注：需要注意这里的缩进格式，netplan配置时和python类似，对缩进有强限制** 
@@ -38,9 +38,11 @@
     **netplan apply**   
     **exit**  
 
-3.  开发板换源（选，国外用户可不用更换，使用默认源）。  
-    执行以下命令更换为ubuntu18.04-arm华为源。  
-    **sudo wget -O /etc/apt/sources.list https://repo.huaweicloud.com/repository/conf/Ubuntu-Ports-bionic.list**   
+3.  更换ubuntu18.04-arm官方源  
+    **sudo vi /etc/apt/sources.list**   
+    将文件中的内容更换为下方链接中的官方源   
+    https://bbs.huaweicloud.com/forum/thread-69663-1-1.html 
+ 
     更新源。  
     **sudo apt-get update**   
 
