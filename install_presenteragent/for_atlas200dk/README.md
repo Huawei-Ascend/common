@@ -37,4 +37,13 @@
     **scp $HOME/ascend_ddk/arm/lib/libpresenteragent.so HwHiAiUser@192.168.1.2:/home/HwHiAiUser**    
     **ssh HwHiAiUser@192.168.1.2**  
     **su root**  
-    **cp /home/HwHiAiUser/libpresenteragent.so /home/HwHiAiUser/ascend_ddk/arm/lib**
+    **cp /home/HwHiAiUser/libpresenteragent.so /home/HwHiAiUser/ascend_ddk/arm/lib**  
+
+6.  添加环境变量。（如已添加，请跳过本步骤）  
+    程序编译时会链接LD_LIBRARY_PATH环境变量地址中的库文件，所以要将presenteragent的库文件地址加到该环境变量中。  
+    **vi ~/.bashrc**  
+    在最后添加  
+    **export LD_LIBRARY_PATH=/home/HwHiAiUser/Ascend/acllib/lib64:/home/HwHiAiUser/ascend_ddk/arm/lib**
+    ![](figures/bashrc.png "")   
+    执行以下命令使环境变量生效。  
+    **source ~/.bashrc**
