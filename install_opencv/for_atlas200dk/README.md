@@ -1,4 +1,4 @@
-中文|[English](README_EN.md)
+中文|[英文](README_EN.md)
 
 # 安装ffmpeg+opencv<a name="ZH-CN_TOPIC_0228768065"></a>
 
@@ -20,8 +20,10 @@
     **apt-get update** 
 
 3.  安装相关依赖（需要在root用户下安装）。   
-    **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev**
+    **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev python3-setuptools python3-dev python3-pip pkg-config -y**  
 
+    **pip3 install Cython**  
+    **pip3 install numpy**
 4.  安装ffmpeg。  
     先切换回普通用户。  
     **exit**  
@@ -36,12 +38,12 @@
     **cd ffmpeg-4.1.3**
 
     安装ffmpeg。  
-    **./configure --enable-shared --enable-pic --enable-static --disable-yasm --prefix=/home/HwHiAiUser/ascend_ddk/arm**  
-    **make -j8**    
-    **su root**  
+    **./configure --enable-shared --enable-pic --enable-static --disable-x86asm --prefix=/home/HwHiAiUser/ascend_ddk/arm**  
+    **make -j8**      
     **make install**
 
     将ffmpeg添加到系统环境变量中，使得其他程序能够找到ffmpeg环境。  
+    **su root**  
     **vim /etc/ld.so.conf.d/ffmpeg.conf**  
     在末尾添加一行。  
     **/home/HwHiAiUser/ascend_ddk/arm/lib**  
@@ -62,16 +64,27 @@
 5.  安装opencv。  
     下载opencv。  
     **git clone -b 4.3.0 https://gitee.com/mirrors/opencv.git**  
+    **git clone -b 4.3.0 https://gitee.com/mirrors/opencv_contrib.git**  
     **cd opencv**  
     **mkdir build**  
     **cd build**  
 
     安装opencv。  
-    **cmake -D BUILD_SHARED_LIBS=ON -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D  CMAKE_INSTALL_PREFIX=/home/HwHiAiUser/ascend_ddk/arm \.\.**  
+    ```
+    cmake -D BUILD_SHARED_LIBS=ON  -D BUILD_opencv_python3=YES -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D  CMAKE_INSTALL_PREFIX=/home/HwHiAiUser/ascend_ddk/arm -D WITH_LIBV4L=ON -D OPENCV_EXTRA_MODULES=../../opencv_contrib/modules -D PYTHON3_LIBRARIES=/usr/lib/python3.6/config-3.6m-aarch64-linux-gnu/libpython3.6m.so  -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.6/dist-packages/numpy/core/include -D OPENCV_SKIP_PYTHON_LOADER=ON ..
+    ``` 
+ 
     **make -j8**  
-    **make install**
+    **make install**  
 
-6.  修改环境变量。
+6.   使python3-opencv生效。   
+     **su root**  
+
+     **cp  \$HOME/ascend_ddk/arm/lib/python3.6/dist-packages/cv2.cpython-36m-aarch64-linux-gnu.so /usr/lib/python3/dist-packages** 
+
+     **exit**
+
+7.  修改环境变量。
     程序编译时会链接LD_LIBRARY_PATH环境变量地址中的库文件，所以要将ffmpeg和opencv安装的库文件地址加到该环境变量中。  
     **vi ~/.bashrc**  
     在最后添加  
@@ -80,7 +93,7 @@
     执行以下命令使环境变量生效。  
     **source ~/.bashrc**
 
-7.  将开发板上安装的ffmpeg和opencv库导入开发环境中，以提供编译使用。  
+8.  将开发板上安装的ffmpeg和opencv库导入开发环境中，以提供编译使用。  
     以下操作在host侧执行，不在开发板上。   
     使用普通用户执行   
     **mkdir $HOME/ascend_ddk**  
