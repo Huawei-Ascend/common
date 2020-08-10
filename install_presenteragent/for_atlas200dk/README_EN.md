@@ -1,4 +1,4 @@
-EN|[CH](README.md)
+English|[中文](README.md)
 
 # Installing Presenter Agent<a name="ZH-CN_TOPIC_0228768065"></a>
 1.  Download the Presenter Agent package.    
