@@ -1,3 +1,5 @@
+EN|[CH](README.md)
+
 # common
 
 #### Introduction
@@ -6,7 +8,7 @@ Third-party dependencies and environmental installation guide document warehouse
 
 **Please enter the corresponding folder for guidance according to your needs, or click the description link below to select the guidance you need to obtain.**
 
-#### 链接地址
+#### link address
 
 
 <details open><summary>install_opencv：Installation Notes of opencv</summary><blockquote>
