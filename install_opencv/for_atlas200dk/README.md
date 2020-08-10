@@ -1,3 +1,5 @@
+中文|[英文](README_EN.md)
+
 # 安装ffmpeg+opencv<a name="ZH-CN_TOPIC_0228768065"></a>
 
 安装ffmpeg和opencv的原因是适配多样性的数据预处理和后处理，昇腾社区的部分样例也是基于ffmpeg和opencv做的处理。如果用户仅需要构建自己的代码，可以不安装ffmpeg+opencv，直接使用自带的dvpp能力。值得一提的是，dvpp在Ascend310芯片中是有硬件方面的加速能力的，处理速度也会更快。
