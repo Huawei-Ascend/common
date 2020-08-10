@@ -1,4 +1,4 @@
-EN|[CH](README.md)
+English|[中文](README.md)
 
 # Installing FFmpeg and OpenCV<a name="ZH-CN_TOPIC_0228768065"></a>
 
