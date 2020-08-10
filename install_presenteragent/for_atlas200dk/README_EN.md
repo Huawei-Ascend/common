@@ -30,8 +30,7 @@ EN|[CH](README.md)
     **export DDK_PATH=/home/ascend/Ascend/ascend-toolkit/X.X.X/acllib_centos7.6.aarch64**   
     >![](public_sys-resources/icon-note.gif) **说明：**  
         **Replace X.X.X with the actual version of the Ascend Toolkit. 
-For example, if the Toolkit is named Ascend-Toolkit-20.0.RC1-x86_64-linux_gcc7.3.0.run, the Toolkit version is 20.0.RC1.
-**   
+For example, if the Toolkit is named Ascend-Toolkit-20.0.RC1-x86_64-linux_gcc7.3.0.run, the Toolkit version is 20.0.RC1.**   
 
     Install Presenter Agent.  
     **cd $HOME/common/install_presenteragent/for_atlas200dk/presenteragent/**   
