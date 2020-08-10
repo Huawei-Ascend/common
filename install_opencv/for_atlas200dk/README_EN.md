@@ -19,7 +19,10 @@ FFmpeg and OpenCV are installed to adapt to diversified data preprocessing and p
     **apt-get update** 
 
 3.  Install the dependencies as the root user.    
-    **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev**
+    **apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libtiff5-dev git cmake libswscale-dev python3-setuptools python3-dev python3-pip pkg-config -y**  
+
+    **pip3 install Cython**  
+    **pip3 install numpy**
 
 4.  Install FFmpeg.  
     Switch to the common user.  
@@ -37,10 +40,10 @@ FFmpeg and OpenCV are installed to adapt to diversified data preprocessing and p
     Install FFmpeg.  
     **./configure --enable-shared --enable-pic --enable-static --disable-yasm --prefix=/home/HwHiAiUser/ascend_ddk/arm**  
     **make -j8**    
-    **su root**  
     **make install**
 
-    Add FFmpeg to the system environment variables.  
+    Add FFmpeg to the system environment variables.   
+    **su root**  
     **vim /etc/ld.so.conf.d/ffmpeg.conf**  
     Append the following line to the file:  
     **/home/HwHiAiUser/ascend_ddk/arm/lib**  
@@ -61,16 +64,27 @@ FFmpeg and OpenCV are installed to adapt to diversified data preprocessing and p
 5.  Install OpenCV.  
     Download OpenCV.  
     **git clone -b 4.3.0 https://gitee.com/mirrors/opencv.git**  
+    **git clone -b 4.3.0 https://gitee.com/mirrors/opencv_contrib.git**   
     **cd opencv**  
     **mkdir build**  
     **cd build**  
 
     Install OpenCV.  
-    **cmake -D BUILD_SHARED_LIBS=ON -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/home/HwHiAiUser/ascend_ddk/arm \.\.**  
+    ```
+    cmake -D BUILD_SHARED_LIBS=ON  -D BUILD_opencv_python3=YES -D BUILD_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D  CMAKE_INSTALL_PREFIX=/home/HwHiAiUser/ascend_ddk/arm -D WITH_LIBV4L=ON -D OPENCV_EXTRA_MODULES=../../opencv_contrib/modules -D PYTHON3_LIBRARIES=/usr/lib/python3.6/config-3.6m-aarch64-linux-gnu/libpython3.6m.so  -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.6/dist-packages/numpy/core/include -D OPENCV_SKIP_PYTHON_LOADER=ON ..
+    ``` 
+ 
     **make -j8**  
     **make install**
+   
+6.   Make python3 opencv work.   
+     **su root**  
 
-6.  Modify the environment variable.
+     **cp  /home/HwHiAiUser/ascend_ddk/arm/lib/python3.6/dist-packages/cv2.cpython-36m-aarch64-linux-gnu.so /usr/lib/python3/dist-packages** 
+
+     **exit**
+
+7.  Modify the environment variable.
     During application building, the library files in the path specified by **LD_LIBRARY_PATH** are linked. Therefore, you need to add the paths of the library files for FFmpeg and OpenCV to **LD_LIBRARY_PATH**.  
     **vi ~/.bashrc**  
     Append the following line to the file:  
@@ -79,7 +93,7 @@ FFmpeg and OpenCV are installed to adapt to diversified data preprocessing and p
     Make the configuration take effect.  
     **source ~/.bashrc**
 
-7.  Import the FFmpeg and OpenCV libraries installed on the development board to the development environment for building.  
+8.  Import the FFmpeg and OpenCV libraries installed on the development board to the development environment for building.  
     The following operations are performed on the host, not on the developer board.   
     Run the following command as the common user:   
     **mkdir $HOME/ascend_ddk**  
