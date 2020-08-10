@@ -1,3 +1,5 @@
+EN|[CH](README.md)
+
 # Installing FFmpeg and OpenCV<a name="ZH-CN_TOPIC_0228768065"></a>
 
 FFmpeg and OpenCV are installed to adapt to diversified data preprocessing and postprocessing requirements. Most of the samples provided by the Ascend Developer Zone utilize the data processing capabilities backed by FFmpeg and OpenCV. To only build the code, you do not need to install FFmpeg or OpenCV. Instead, you can directly call the data processing capability provided by the built-in DVPP module, which enables hardware acceleration for the Ascend 310 AI Processor.
