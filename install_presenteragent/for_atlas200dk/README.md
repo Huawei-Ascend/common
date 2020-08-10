@@ -1,3 +1,5 @@
+中文|[英文](README_EN.md)
+
 # 安装presenteragent<a name="ZH-CN_TOPIC_0228768065"></a>
 1.  下载PresentAgent。  
     **cd $HOME**  
