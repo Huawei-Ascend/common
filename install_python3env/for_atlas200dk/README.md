@@ -1,3 +1,5 @@
+中文|[English](README_EN.md)
+
 # 安装Python3运行环境<a name="ZH-CN_TOPIC_0228768065"></a>
 以下操作在开发者板上执行。
 1.  给用户权限配置  
