@@ -23,7 +23,7 @@ Third-party dependencies and environmental installation guide document warehouse
 - [for_atlas300](https://gitee.com/ascend/common/tree/master/install_presenteragent/for_atlas300)
 </blockquote></details>    
 
-<details open><summary>install_python3env：Installation Notes of python3.7.5</summary><blockquote>
+<details open><summary>install_python3env：Installation Notes of python3</summary><blockquote>
 
 - [for_atlas200dk](https://gitee.com/ascend/common/tree/master/install_python3env/for_atlas200dk)  
 - [for_atlas300]()
