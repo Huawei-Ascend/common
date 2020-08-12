@@ -80,7 +80,7 @@
 6.   使python3-opencv生效。   
      **su root**  
 
-     **cp  \$HOME/ascend_ddk/arm/lib/python3.6/dist-packages/cv2.cpython-36m-aarch64-linux-gnu.so /usr/lib/python3/dist-packages** 
+     **cp  /home/HwHiAiUser/ascend_ddk/arm/lib/python3.6/dist-packages/cv2.cpython-36m-aarch64-linux-gnu.so /usr/lib/python3/dist-packages** 
 
      **exit**
 
