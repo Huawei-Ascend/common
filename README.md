@@ -23,7 +23,7 @@ Ascend common，第三方依赖及环境安装指导文档仓库。
 - [for_atlas300](https://gitee.com/ascend/common/tree/master/install_presenteragent/for_atlas300)
 </blockquote></details>    
 
-<details open><summary>install_python3env：python3.7.5环境安装说明</summary><blockquote>
+<details open><summary>install_python3env：python3环境安装说明</summary><blockquote>
 
 - [for_atlas200dk](https://gitee.com/ascend/common/tree/master/install_python3env/for_atlas200dk)  
 - [for_atlas300]()
