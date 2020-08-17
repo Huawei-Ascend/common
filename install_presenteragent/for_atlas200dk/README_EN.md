@@ -3,7 +3,7 @@ English|[中文](README.md)
 # Installing Presenter Agent<a name="ZH-CN_TOPIC_0228768065"></a>
 1.  Download the Presenter Agent package.    
     **cd $HOME**  
-    **git clone https://gitee.com/ascend/common.git**
+    **git clone https://github.com/Huawei-Ascend/common.git**
 2.  Install the python-tornado package.  
     **python3.7.5 -m pip install tornado==5.1.0 --user**
 3.  Install the autoconf, automake, and libtool dependencies.  

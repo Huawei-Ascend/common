@@ -3,7 +3,7 @@
 # 安装presenteragent<a name="ZH-CN_TOPIC_0228768065"></a>
 1.  下载PresentAgent。  
     **cd $HOME**  
-    **git clone https://gitee.com/ascend/common.git**
+    **git clone https://github.com/Huawei-Ascend/common.git**
 2.  安装tornado包  
     **python3.7.5 -m pip install tornado==5.1.0 --user**
 3.  安装autoconf、automake、libtool依赖。  
